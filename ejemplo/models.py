@@ -7,3 +7,5 @@ class Familiar(models.Model):
 
 def __str__(self):
     return f"{self.nombre}, {self.numero_pasaporte}, {self.id}"
+
+ 
