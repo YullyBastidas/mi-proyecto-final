@@ -55,7 +55,8 @@ class AltaFamiliar(View):
 
     form_class = FamiliarForm
     template_name = 'ejemplo/alta_familiar.html'
-    initial = {"nombre":"", "direccion":"", "numero_pasaporte":""}
+    success_template = 'ejemplo/exito.html'
+    initial = {"nombre":"", "apellido":"", "direccion":"", "numero_pasaporte":"", "fecha_de_nacimiento":"" }
 
     def get(self, request):
         form = self.form_class(initial=self.initial)
@@ -70,6 +71,6 @@ class AltaFamiliar(View):
             return render(request, self.template_name, {'form':form, 
                                                         'msg_exito': msg_exito})
         
-        return render(request, self.template_name, {"form": form})
+        return render(request, self.success_template)
 
          
