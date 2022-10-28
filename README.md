@@ -1,5 +1,13 @@
 # mi-proyecto-final
-Este es mi proyecto final
+Proyecto final
+Blog de tatuajes
+
+models:
+Configuracion
+
+Template:
+index.html
+
 
 Url: http://127.0.0.1:8000/
 
@@ -22,4 +30,5 @@ formulario:
 formd.py
 
 En esta aplicacion podemos buscar, agregar, eliminar Familiares
+
 Creado por Yully Bastidas
