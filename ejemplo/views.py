@@ -2,7 +2,7 @@ from django.shortcuts import render
 from ejemplo.models import Familiar
 from ejemplo.forms import Buscar, FamiliarForm
 from django.views import View
-from django.views.generic import ListView, CreateView, DeleteView
+
 
 
 def index(request):
@@ -74,16 +74,3 @@ class AltaFamiliar(View):
         
         return render(request, self.success_template)
 
-class FamiliarList(ListView):
-    model = Familiar
-
-class FamiliarCrear(CreateView):
-    model = Familiar
-    success_url = "/panel-familiar"
-    fields = ['nombre', 'apellido', 'direccion', 'numero_pasaporte', 'fecha_de_nacimiento']            
-
-class FamiliarBorrar(DeleteView):
-    model = Familiar
-    success_url = "/panel-familia"
-
-         

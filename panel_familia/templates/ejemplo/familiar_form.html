@@ -8,11 +8,13 @@
 </head>
 <body>
 
-    <form action="/panel-familia/crear", method="post">
+    <form method="post">
         {% csrf_token %}
         {{form.as_p}}
-        <input type="submit" value="agregar">
+        <input type="submit" value="Guardar">
     </form>
+
+    <a href="{% url 'familiar-list' %}">Volver a lista de familia</a>
 
 </body>
 </html>
