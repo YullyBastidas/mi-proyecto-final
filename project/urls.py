@@ -18,8 +18,7 @@ from django.urls import path, include
 from ejemplo.views import (index, index_dos, index_tres,
                            imc, monstrar_familiares, BuscarFamiliar, 
                            AltaFamiliar)
-from blog.views import index as blog_index                          
-
+                         
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('saludar/', index),
@@ -27,11 +26,11 @@ urlpatterns = [
     path('mostrar-notas/', index_tres),
     path('masa-corporal/<peso>/<altura>/', imc),
     path('mi-familia/', monstrar_familiares),
-    path('blog/', blog_index),
     path('mi-familia/buscar', BuscarFamiliar.as_view()),
     path('mi-familia/alta', AltaFamiliar.as_view()),
     path('mi-familia/alta', AltaFamiliar.as_view()),
     path('panel-familia/', include('panel_familia.urls')),
+    path('blog/', include('blog.urls')),
    
 ]
 
