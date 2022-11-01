@@ -37,7 +37,7 @@ class DeletePost(DeleteView):
 class SearchPostByName(ListView):
     def get_queryset(self):
         post_title = self.request.GET.get('post-title')
-        return Post.objects.filter(title__icontains=post_title)
+        return Post.objects.filter(title__icontains= post_title)
     
 
 class BlogLogin(LoginView):
