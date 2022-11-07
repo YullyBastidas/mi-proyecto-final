@@ -1,4 +1,12 @@
 {%extends 'blog/base.html' %}
+{% block nombre_blog %}
+  Catbastattoo
+{% endblock nombre_blog %}
+
+{% block titulo_principal %}
+  Blog de Tatuajes
+{% endblock titulo_principal %}
+
 {% block contenido %}
 <form method="POST">
     {% csrf_token %}
