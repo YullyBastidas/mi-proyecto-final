@@ -37,6 +37,9 @@ Version en mi sistema:
 ```
 Ir a localhost:8000/
 
+# Video del proyecto
+https://youtu.be/BTdpGNIcYso
+
 
 
 
