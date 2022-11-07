@@ -4,9 +4,9 @@
 - Yully Bastidas
 
 Este proyecto es un blog de tatuajes
-- Crear, actualizar, borrar contenido.
-- Crear usuario, midificar, borrar.
-- Agregar imagenes.
+- Crear, actualizar, borrar contenido, ver.
+- Crear usuario, modificar, borrar.
+- Agregar imagenes con su contenido.
 
 # Versiones instaladas en Windows:
 
