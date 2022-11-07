@@ -1,34 +1,44 @@
-# mi-proyecto-final
-Proyecto final
-Blog de tatuajes
+# mi-proyecto-fina
+# Blog de tatuajes
+## Integrante:
+- Yully Bastidas
 
-models:
-Configuracion
+Este proyecto es un blog de tatuajes
+- Crear, actualizar, borrar contenido.
+- Crear usuario, midificar, borrar.
+- Agregar imagenes.
 
-Template:
-index.html
+# Versiones instaladas en Windows:
+
+Version en mi sistema:
+
+```bash
+> python 3.10.6
+> django 4.1.2
+```
+
+## Se debe instalar para django:
+
+```bash
+> pip install
+```
+
+## Pasos para migrar:
+
+```bash
+> python manage.py makemigrations
+> python manage.py migrate
+```
+
+## Para correr la aplicacion:
+
+```bash
+> python manage.py runserver
+```
+Ir a localhost:8000/
 
 
-Url: http://127.0.0.1:8000/
 
-Templates:
-mi-familia
-mi-familia/buscar
-mi-familia/alta
 
-Herencia:
-alta_familiar.html
-base.html
-familiares.html
 
-app ejemplo
 
-models.py:
-Tengo: id, nombre, apellido, pasaporte, fecha de nacimiento
-
-formulario:
-formd.py
-
-En esta aplicacion podemos buscar, agregar, eliminar Familiares
-
-Creado por Yully Bastidas

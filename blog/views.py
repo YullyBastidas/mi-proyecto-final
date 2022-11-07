@@ -1,8 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.admin import User
 from django.shortcuts import render
 from django.urls import reverse_lazy
+from django.views import View
 from blog.models import Configuracion
 from django.views.generic import ListView, CreateView, DeleteView, UpdateView, DetailView
 from blog.models import Post
@@ -10,34 +13,36 @@ from blog.models import Post
 
 @login_required
 def index(request):
+    posts = Post.objects.order_by('-date_published').all()
     configuracion = Configuracion.objects.first()
-    return render(request, 'blog/index.html', {'configuracion': configuracion})
+    return render(request, 'blog/index.html', {'configuracion': configuracion, 'posts': posts})
 
-class ListPost(LoginRequiredMixin, ListView):
-    model=Post
+class ListPost(ListView):
+    paginate_by = 2
+    model = Post
 
 class CreatePost(CreateView):
-    model=Post
-    fields = ['title', 'short_content', 'content']
+    model = Post
+    fields = ['title', 'short_content', 'content', 'image']
     success_url = reverse_lazy("list-post")
 
 class DetailPost(DetailView):
-    model=Post
+    model = Post
 
 class UpdatePost(UpdateView):
-    model=Post
-    fields=['title', 'short_content', 'content']
+    model = Post
+    fields = ['title', 'short_content', 'content', 'image']
     success_url = reverse_lazy("list-post")
 
 class DeletePost(DeleteView):
-    model=Post
+    model = Post
     success_url = reverse_lazy("list-post")
 
 
 class SearchPostByName(ListView):
     def get_queryset(self):
-        post_title = self.request.GET.get('post-title')
-        return Post.objects.filter(title__icontains= post_title)
+        blog_title = self.request.GET.get('post-title')
+        return Post.objects.filter(title__icontains= blog_title)
     
 
 class BlogLogin(LoginView):
@@ -46,4 +51,16 @@ class BlogLogin(LoginView):
 
 class BlogLogout(LogoutView):
     template_name = 'blog/blog_logout.html'
+
+class BlogSignUp(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy("blog-login")
+    template_name = "registration/signup.html"
+
+class ProfileUpdate(UpdateView):
+    model = User
+    fields = ['username', 'first_name', 'last_name', 'email']
+    success_url = reverse_lazy("blog-login")    
   
+def vista(request):
+    return render(request, "blog/vista_about.html")
